@@ -7,8 +7,6 @@
  *                                                                                            *
  ******************************************************************************************** */
 
-/* eslint-disable no-param-reassign */
-
 /**
  * Returns an index of the specified element in array or -1 if element is not found
  *
@@ -499,11 +497,13 @@ function sortCitiesArray(arr) {
  */
 function getIdentityMatrix(n) {
   const array = Array.from({ length: n }, (item, index) => {
-    item = Array.from({ length: n }, (v, k) => {
-      v = k === index ? 1 : 0;
-      return v;
+    let i = item;
+    i = Array.from({ length: n }, (v, k) => {
+      let j = v;
+      j = k === index ? 1 : 0;
+      return j;
     });
-    return item;
+    return i;
   });
   return array;
 }
@@ -523,8 +523,9 @@ function getIdentityMatrix(n) {
  */
 function getIntervalArray(start, end) {
   const array = Array.from({ length: end - start + 1 }, (item, index) => {
-    item = start + index;
-    return item;
+    let i = item;
+    i = start + index;
+    return i;
   });
   return array;
 }
@@ -647,7 +648,6 @@ function swapHeadAndTail(arr) {
   }
   return resultArray;
 }
-/* eslint-disable no-param-reassign */
 
 module.exports = {
   findElement,
